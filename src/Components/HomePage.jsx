@@ -1,15 +1,25 @@
 import React from "react";
 import logo from "../assets/images/logoPNG.png";
 import bg from "../assets/images/bg.png";
+import winterHS from "../assets/images/winterHS.png";
+// import winterLogo from "../assets/images/winterLogo.png";
+import winterview from "../assets/images/winterview.jpg";
 
 function HomePage({ setGameLevels }) {
+  const bungeeSpiceStyle = {
+    fontFamily: `"Bungee Spice", "serif", "sans-serif"`,
+  };
+
   return (
     <div
       className="min-h-screen min-w-full flex flex-col gap-4 items-center justify-center bg-cover bg-no-repeat bg-center"
-      style={{ backgroundImage: `url(${bg})` }}
+      style={{ backgroundImage: `url(${winterview})` }}
     >
-      <img className="center w-1/3 mx-auto" src={logo} alt="Logo" />
-      <h1 className="title text-6xl text-stone-200 mb-4 text-center drop-shadow-lg">
+      <img className="center w-1/3 mx-auto p-2" src={logo} alt="Logo" />
+      <h1
+        className="font-serif text-7xl mb-4 text-center drop-shadow-lg"
+        style={{ ...bungeeSpiceStyle }}
+      >
         Memory Game
       </h1>
       <div className="difficulty-levels flex items-center justify-center gap-8">
