@@ -1,7 +1,7 @@
 import React from "react";
 
-function MainBoard() {
-  return <div>Main Game Board</div>;
+function MainBoard({}) {
+  return <div></div>;
 }
 
 export default MainBoard;

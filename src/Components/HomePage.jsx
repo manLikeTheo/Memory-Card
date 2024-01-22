@@ -25,19 +25,19 @@ function HomePage({ setGameLevels }) {
       <div className="difficulty-levels flex items-center justify-center gap-8">
         <button
           onClick={() => setGameLevels([5, 3])}
-          className="beginner bg-slate-300 p-4 text-slate-900 text-xl hover:scale-95 font-bold rounded"
+          className="beginner bg-slate-300 p-4 text-slate-900 text-xl hover:scale-95 font-bold rounded-xl"
         >
           Beginner
         </button>
         <button
           onClick={() => setGameLevels([7, 4])}
-          className="experienced bg-slate-300 p-4 text-slate-900 text-xl hover:scale-95 font-bold rounded"
+          className="experienced bg-slate-300 p-4 text-slate-900 text-xl hover:scale-95 font-bold rounded-xl"
         >
           Experienced
         </button>
         <button
           onClick={() => setGameLevels([10, 5])}
-          className="legend bg-slate-300 p-4 text-slate-900 text-xl hover:scale-95 font-bold rounded"
+          className="legend bg-slate-300 p-4 text-slate-900 text-xl hover:scale-95 font-bold rounded-xl"
         >
           Legend
         </button>
