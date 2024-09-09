@@ -1,11 +1,9 @@
 import React from "react";
 import logo from "../assets/images/logoPNG.png";
-import bg from "../assets/images/bg.png";
-import winterHS from "../assets/images/winterHS.png";
 // import winterLogo from "../assets/images/winterLogo.png";
 import winterview from "../assets/images/winterview.jpg";
 
-function HomePage({ setGameLevels }) {
+function HomePage({ startGame }) {
   const bungeeSpiceStyle = {
     fontFamily: `"Bungee Spice", "serif", "sans-serif"`,
   };
@@ -24,22 +22,10 @@ function HomePage({ setGameLevels }) {
       </h1>
       <div className="difficulty-levels flex items-center justify-center gap-8">
         <button
-          onClick={() => setGameLevels([5, 3])}
-          className="beginner bg-slate-300 p-4 text-slate-900 text-xl hover:scale-95 font-bold rounded-xl"
+          className="text-3xl font-bold text-white hover:scale-90 bg-amber-600 rounded-lg px-4 py-2"
+          onClick={startGame}
         >
-          Beginner
-        </button>
-        <button
-          onClick={() => setGameLevels([7, 4])}
-          className="experienced bg-slate-300 p-4 text-slate-900 text-xl hover:scale-95 font-bold rounded-xl"
-        >
-          Experienced
-        </button>
-        <button
-          onClick={() => setGameLevels([10, 5])}
-          className="legend bg-slate-300 p-4 text-slate-900 text-xl hover:scale-95 font-bold rounded-xl"
-        >
-          Legend
+          Start Game
         </button>
       </div>
     </div>

@@ -2,36 +2,27 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import HomePage from "./Components/HomePage";
 import MainBoard from "./Components/MainBoard";
-import CharacterCard from "./Components/CharacterCard";
 import fetchData from "./Components/FetchData";
 
 function App() {
+  const [currentPage, setCurrentPage] = useState("home");
   const [gameLevels, setGameLevels] = useState([]);
   const [characters, setCharacters] = useState([]);
-  const [cardsSelected, setCardsSelected] = useState([]);
-  const [firstPick, setFirstPick] = useState(null);
-  const [secondPick, setSecondPick] = useState(null);
-  const [gameProgress, setGameProgress] = useState("");
+  // const [cardsSelected, setCardsSelected] = useState([]);
+  // const [firstPick, setFirstPick] = useState(null);
+  // const [secondPick, setSecondPick] = useState(null);
+  // const [gameProgress, setGameProgress] = useState("");
   const [highestScore, setHighestScore] = useState(0);
   const [turns, setTurns] = useState(0);
 
   useEffect(() => {
     fetchData("https://thronesapi.com/api/v2/Characters", (data) => {
-      const characterData = data.splice(0, 20);
-      const shuffledCharacters = shuffle(characterData);
-      setCharacters(shuffledCharacters);
-      console.log(characters);
+      const characterData = data.splice(0, 16);
+      // const shuffledCharacters = shuffle(characterData);
+      setCharacters(shuffle(characterData));
+      // console.log(characters);
     });
   }, []);
-
-  useEffect(() => {
-    if (firstPick && secondPick) {
-      if (firstPick.id === secondPick.id) {
-        console.log("Match!!!");
-        resetTurns();
-      }
-    }
-  }, [firstPick, secondPick]);
 
   const shuffle = (array) => {
     if (array.length > 0) {
@@ -39,38 +30,36 @@ function App() {
     }
   };
 
-  const handleChoice = (character) => {
-    firstPick ? setSecondPick(character) : setFirstPick(character);
+  // Function to start game and switch to the Game Board
+  const startGame = () => {
+    setGameLevels([1, 2, 3]);
+    setCurrentPage("game");
   };
 
-  const resetTurns = () => {
-    setFirstPick(null);
-    setSecondPick(null);
-    setTurns((prevTurn) => prevTurn + 1);
-  };
+  // useEffect(() => {
+  //   if (firstPick && secondPick) {
+  //     if (firstPick.id === secondPick.id) {
+  //       console.log("Match!!!");
+  //       resetTurns();
+  //     }
+  //   }
+  // }, [firstPick, secondPick]);
+
+  // const handleChoice = (character) => {
+  //   firstPick ? setSecondPick(character) : setFirstPick(character);
+  // };
 
   return (
     <>
-      {/* <HomePage setGameLevels={setGameLevels} /> */}
-      {/* {!gameLevels[0] ? (
-        <HomePage setGameLevels={setGameLevels} />
+      {currentPage === "home" ? (
+        <HomePage setGameLevels={setGameLevels} startGame={startGame} />
       ) : (
-        <CharacterCard />
-      )} */}
-
-      <div className="card-grids gap-6 grid grid-cols-5 grid-rows-2 items-center">
-        {characters.length > 0 ? (
-          characters.map((character) => (
-            <CharacterCard
-              key={character.id}
-              character={character}
-              handleChoice={handleChoice}
-            />
-          ))
-        ) : (
-          <h1 className="text-5xl font-bold">Loading...</h1>
-        )}
-      </div>
+        <MainBoard
+          characters={characters}
+          highestScore={highestScore}
+          setHighestScore={setHighestScore}
+        />
+      )}
     </>
   );
 }
