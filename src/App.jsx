@@ -36,19 +36,6 @@ function App() {
     setCurrentPage("game");
   };
 
-  // useEffect(() => {
-  //   if (firstPick && secondPick) {
-  //     if (firstPick.id === secondPick.id) {
-  //       console.log("Match!!!");
-  //       resetTurns();
-  //     }
-  //   }
-  // }, [firstPick, secondPick]);
-
-  // const handleChoice = (character) => {
-  //   firstPick ? setSecondPick(character) : setFirstPick(character);
-  // };
-
   return (
     <>
       {currentPage === "home" ? (

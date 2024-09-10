@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "../assets/images/logoPNG.png";
-// import winterLogo from "../assets/images/winterLogo.png";
 import winterview from "../assets/images/winterview.jpg";
 
 function HomePage({ startGame }) {
