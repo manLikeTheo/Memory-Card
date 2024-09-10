@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     fetchData("https://thronesapi.com/api/v2/Characters", (data) => {
-      const characterData = data.splice(0, 16);
+      const characterData = data.splice(0, 10);
       // const shuffledCharacters = shuffle(characterData);
       setCharacters(shuffle(characterData));
       // console.log(characters);
